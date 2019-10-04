@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import url("https://fonts.googleapis.com/css?family=Kodchasan&display=swap");
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  /* font-family: "Kodchasan", sans-serif; */
+}
+* {
+  font-family: "Kodchasan", sans-serif;
+}
+
+.mat-toolbar {
+  background-color: #08895c;
+  color: white;
+}

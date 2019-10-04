@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <mat-card>
+
+                <form class="form" autocomplete="off" novalidate #MaterialForm="ngForm">
+                    <mat-card-header>
+                        <mat-card-title>
+                            <h2>Material Form</h2>
+                        </mat-card-title>
+                    </mat-card-header>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <mat-form-field appearance="outline">
+                                <mat-label>First Name</mat-label>
+                                <input matInput type="text" name="firstName">
+                            </mat-form-field>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Last Name</mat-label>
+                                <input matInput type="text" name="firstName">
+                            </mat-form-field>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <mat-radio-group class="mat-form-field" aria-label="Select gender">
+                                <mat-radio-button value="male">Male</mat-radio-button>&nbsp;
+                                <mat-radio-button value="female">Female</mat-radio-button>
+
+                            </mat-radio-group>
+                        </div>
+                        <div class="col-sm-6">
+
+                            <mat-form-field>
+                                <input type="text" placeholder="Select Building" aria-label="Building" matInput
+                                    [formControl]="myControl" [matAutocomplete]="auto">
+                                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                        {{option.name}}
+                                    </mat-option>
+                                </mat-autocomplete>
+                            </mat-form-field>
+
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <mat-label>How many miles?</mat-label>
+                            <br>
+                            <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1" min="1" max="100">
+                            </mat-slider>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <mat-form-field appearance="outline">
+                                <input matInput (click)="picker.open()" [matDatepicker]="picker" readonly id="date"
+                                    placeholder="Choose DOB" required>
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker disabled=false touchUi #picker></mat-datepicker>
+                            </mat-form-field>
+
+                        </div>
+                    </div>
+                    <button mat-raised-button>SUBMIT</button>
+                </form>
+
+            </mat-card>
+            <br>
+            <div class="link">
+                <a routerLink="/show-data">
+                    Show List Data
+
+                    <i class="material-icons">
+                        arrow_right_alt
+                    </i>
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+</div>
